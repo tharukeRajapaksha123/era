@@ -1,1 +1,54 @@
-Eranda Ishan
+#include <iostream>
+#include <string>
+
+class Guest {
+private:
+    int guestID;
+    std::string guestName;
+    double ratePerDay;
+    int numberOfDays;
+
+public:
+    void setGuestDetails(int id, const std::string& name, double rate, int days) {
+        guestID = id;
+        guestName = name;
+        ratePerDay = rate;
+        numberOfDays = days;
+    }
+
+    void displayGuestDetails() {
+        std::cout << "Guest ID = " << guestID << std::endl;
+        std::cout << "Guest Name = " << guestName << std::endl;
+    }
+
+    double calculateGuestBill() {
+        return ratePerDay * numberOfDays;
+    }
+};
+
+int main() {
+    // Create guest objects
+    Guest guest1;
+    Guest guest2;
+    Guest guest3;
+
+    // Set guest details
+    guest1.setGuestDetails(1212, "Jared", 2000.0, 9);
+    guest2.setGuestDetails(1122, "Ben", 1000.0, 9);
+    guest3.setGuestDetails(1234, "Ruby", 1000.0, 11);
+
+    // Calculate and display the bill for each guest
+    std::cout << "Guest 1:" << std::endl;
+    guest1.displayGuestDetails();
+    std::cout << "Bill Amount = " << guest1.calculateGuestBill() << std::endl << std::endl;
+
+    std::cout << "Guest 2:" << std::endl;
+    guest2.displayGuestDetails();
+    std::cout << "Bill Amount = " << guest2.calculateGuestBill() << std::endl << std::endl;
+
+    std::cout << "Guest 3:" << std::endl;
+    guest3.displayGuestDetails();
+    std::cout << "Bill Amount = " << guest3.calculateGuestBill() << std::endl << std::endl;
+
+    return 0;
+}
